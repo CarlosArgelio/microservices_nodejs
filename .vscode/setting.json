@@ -1,0 +1,30 @@
+{
+    "python.linting.enabled": true,
+    "python.linting.flake8Args": [
+      "-v",
+      "-n",
+      "-e",
+      "E501,E266,E402,E722,W503,W504"
+    ],
+    "python.linting.pylintArgs": [
+      "-m",
+      "pylint",
+      "-r",
+      "n",
+      "-e",
+      "E501,E266,E402,E722,W503,W504"
+    ],
+    "python.linting.mypyArgs": [
+      "-m",
+      "mypy",
+      "-p",
+      "myproject",
+      "-v",
+      "-c",
+      "mypy.ini"
+    ],
+    "python.linting.blackArgs": [
+      "-v"
+    ],
+    "javascript.validate.enable": true
+}
