@@ -1,5 +1,4 @@
 const { formatDate } = require('../utils/datetimes')
-// eslint-disable-next-line no-unused-vars
 const { legthBytes } = require('../utils/legth.bytes')
 
 function formatResponse(req, res, message, status, statusError, details) {
@@ -32,6 +31,7 @@ exports.success = function (req, res, message, status) {
 }
 
 exports.error = function (req, res, message, status, details) {
+  console.log(message);
   let messageResponse = message || 'Internal server error';
   let statusCode = status || 500;
   let detailsConsole = details || '';
