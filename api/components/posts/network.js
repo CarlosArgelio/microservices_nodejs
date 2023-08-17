@@ -1,15 +1,34 @@
 const express = require('express');
 const controller = require('./index');
-const response = require('../../../middlewares/response')
+const response = require('../../../middlewares/response');
+const { validatorHandler } = require('../../../middlewares/validator.handler');
+const { createPostSchema, updatePostSchema, getPostByIdSchema } = require('./schema');
 
-const router = express.Router()
 
-router.get('/', list)
-router.get('/:id', get)
-router.get('/my-posts', myPosts)
-router.post('/', create)
-router.put('/:id', update)
-router.delete('/:id', remove)
+const router = express.Router();
+
+router.get('/', list);
+router.get(
+  '/:id',
+  validatorHandler(getPostByIdSchema, 'params'),
+  get
+);
+router.get('/my-posts', myPosts);
+router.post(
+  '/',
+  validatorHandler(createPostSchema, 'body'),
+  create
+);
+router.put(
+  '/:id',
+  validatorHandler(getPostByIdSchema, 'params'),
+  update
+);
+router.delete(
+  '/:id',
+  validatorHandler(getPostByIdSchema, 'params'),
+  remove
+);
 
 function list(req, res, next) {
   try {
